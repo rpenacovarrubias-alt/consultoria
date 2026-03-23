@@ -1,753 +1,248 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Potenciando el Talento en Hospitalidad â Ricardo PeÃ±a Covarrubias</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RPC Consulting – Ricardo Peña Covarrubias</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary":"#006c4a","surface-container-low":"#f2f4f6","surface-container-lowest":"#ffffff","on-surface":"#191c1e","on-surface-variant":"#43474b","outline-variant":"#c4c7cc","surface":"#f7f9fb","secondary-container":"#82f5c1"},fontFamily:{headline:["Inter"],body:["Inter"]}}}}</script>
 <style>
-/* ââ TOKENS ââ */
-:root {
-  --bg:       #0e1f2e;
-  --bg2:      #142333;
-  --bg3:      #1a2d3e;
-  --card:     #1e3347;
-  --card2:    #243b50;
-  --green:    #4ade80;
-  --green2:   #22c55e;
-  --green3:   #16a34a;
-  --teal:     #2dd4bf;
-  --white:    #ffffff;
-  --gray:     #94a3b8;
-  --gray2:    #64748b;
-  --border:   rgba(255,255,255,.08);
-  --r:        10px;
-  --tr:       .25s ease;
-  --fh:       'Inter', sans-serif;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--fh); background: var(--bg); color: var(--white); line-height: 1.65; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-.wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
-.sec { padding: 72px 0; }
-.sec--alt { background: var(--bg2); }
-
-/* ââ NAV ââ */
-nav {
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  position: sticky; top: 0; z-index: 200;
-}
-.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; max-width: 1100px; margin: 0 auto; }
-.nav-brand { display: flex; align-items: center; gap: 12px; }
-.nav-badge { width: 38px; height: 38px; border-radius: 8px; background: var(--green3); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: var(--white); }
-.nav-name { font-size: 15px; font-weight: 700; color: var(--white); line-height: 1.1; }
-.nav-name small { display: block; font-size: 10px; font-weight: 400; color: var(--gray); text-transform: uppercase; letter-spacing: .07em; }
-.nav-links { display: flex; gap: 24px; align-items: center; }
-.nav-links a { font-size: 13px; font-weight: 500; color: var(--gray); transition: color var(--tr); }
-.nav-links a:hover { color: var(--green); }
-.btn-nav { background: var(--green3) !important; color: var(--white) !important; padding: 8px 18px; border-radius: 6px; font-weight: 600 !important; transition: background var(--tr) !important; }
-.btn-nav:hover { background: var(--green2) !important; }
-
-/* ââ HERO ââ */
-.hero { position: relative; min-height: 90vh; display: flex; align-items: center; overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0b1a26 0%, #0e2438 60%, #122b3a 100%); }
-.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 48px 48px; }
-.hero-inner { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: 80px 28px; display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center; }
-.hero-left { }
-.hero-cats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
-.hero-cat { background: var(--green3); color: var(--white); padding: 7px 18px; border-radius: 4px; font-size: 13px; font-weight: 600; letter-spacing: .03em; }
-.hero-cat--outline { background: transparent; border: 1.5px solid var(--green3); color: var(--green); }
-h1.hero-title { font-size: clamp(36px, 5vw, 62px); font-weight: 800; line-height: 1.05; margin-bottom: 20px; color: var(--white); }
-h1.hero-title .hi { color: var(--green); }
-.hero-desc { font-size: 17px; font-weight: 300; color: rgba(255,255,255,.65); line-height: 1.7; max-width: 520px; }
-.hero-right { }
-.hero-menu { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
-.hero-menu-title { padding: 18px 22px; border-bottom: 1px solid var(--border); font-size: 14px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: .08em; }
-.hero-menu-item { display: flex; align-items: center; gap: 14px; padding: 15px 22px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background var(--tr); }
-.hero-menu-item:last-child { border-bottom: none; }
-.hero-menu-item:hover { background: var(--card2); }
-.hero-menu-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(74,222,128,.12); border: 1px solid rgba(74,222,128,.2); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
-.hero-menu-label { font-size: 14px; font-weight: 600; color: var(--white); }
-.hero-menu-sub { font-size: 12px; color: var(--gray); margin-top: 1px; }
-.hero-menu-arrow { margin-left: auto; color: var(--green); font-size: 16px; }
-
-/* ââ SECTION TITLES ââ */
-.stitle { font-size: clamp(24px, 3vw, 36px); font-weight: 800; color: var(--white); margin-bottom: 12px; }
-.stitle .hi { color: var(--green); }
-.slead { font-size: 16px; color: var(--gray); line-height: 1.7; max-width: 680px; }
-.shead { margin-bottom: 40px; }
-.tag { display: inline-block; background: rgba(74,222,128,.12); border: 1px solid rgba(74,222,128,.25); color: var(--green); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; border-radius: 4px; padding: 3px 10px; margin-bottom: 12px; }
-
-/* ââ INTRO SPLIT (Ama de Llaves) ââ */
-.split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
-.split-img { position: relative; min-height: 400px; background: linear-gradient(135deg, #0a1a24, #0d2233); overflow: hidden; }
-.split-img img { width: 100%; height: 100%; object-fit: cover; opacity: .8; }
-.split-img-placeholder { width: 100%; height: 100%; min-height: 420px; background: linear-gradient(135deg, #0a1624 0%, #112233 50%, #0e1e2e 100%); display: flex; align-items: center; justify-content: center; }
-.split-img-placeholder svg { width: 80px; height: 80px; opacity: .15; }
-.split-content { background: var(--bg3); padding: 40px 36px; }
-.split-content h2 { font-size: 26px; font-weight: 800; margin-bottom: 8px; color: var(--white); }
-.split-content h2 span { color: var(--green); }
-.timeline { margin-top: 28px; position: relative; }
-.timeline::before { content: ''; position: absolute; left: 14px; top: 10px; bottom: 10px; width: 1px; background: var(--border); }
-.tl-item { display: flex; gap: 18px; margin-bottom: 26px; }
-.tl-item:last-child { margin-bottom: 0; }
-.tl-dot { width: 28px; height: 28px; border-radius: 50%; background: rgba(74,222,128,.15); border: 1.5px solid var(--green3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; z-index: 1; }
-.tl-dot svg { width: 12px; height: 12px; fill: var(--green); }
-.tl-body { }
-.tl-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 5px; }
-.tl-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
-
-/* ââ VIDEO GRID ââ */
-.vgrid { display: grid; gap: 20px; }
-.vgrid--3 { grid-template-columns: repeat(3, 1fr); }
-.vgrid--4 { grid-template-columns: repeat(4, 1fr); }
-.vgrid--2 { grid-template-columns: repeat(2, 1fr); }
-.vcard { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: transform var(--tr), border-color var(--tr); }
-.vcard:hover { transform: translateY(-3px); border-color: rgba(74,222,128,.3); }
-.vcard-thumb { position: relative; padding-top: 56.25%; background: #0a1a24; }
-.vcard-thumb iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
-.vcard-info { padding: 12px 14px; }
-.vcard-num { display: inline-block; background: var(--green3); color: var(--white); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 3px; margin-bottom: 6px; }
-.vcard-title { font-size: 13.5px; font-weight: 700; color: var(--white); line-height: 1.35; }
-.vcard-sub { font-size: 11.5px; color: var(--gray); margin-top: 4px; line-height: 1.45; }
-.vcard-dur { font-size: 10.5px; color: var(--green); font-weight: 600; margin-top: 6px; }
-
-/* ââ CHECKLIST SPLIT ââ */
-.check-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
-.check-img { min-height: 380px; background: #0a1828; position: relative; overflow: hidden; }
-.check-img img { width: 100%; height: 100%; object-fit: cover; opacity: .75; }
-.check-content { background: var(--bg3); padding: 40px 36px; }
-.check-content h2 { font-size: 24px; font-weight: 800; color: var(--white); margin-bottom: 24px; line-height: 1.2; }
-.check-item { display: flex; gap: 16px; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
-.check-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.check-icon { width: 40px; height: 40px; border-radius: 9px; background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.check-icon svg { width: 18px; height: 18px; fill: var(--green); }
-.check-label { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
-.check-text { font-size: 13px; color: var(--gray); line-height: 1.6; }
-
-/* ââ SERVICIO SPLIT ââ */
-.serv-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
-.serv-content { background: var(--bg3); padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; }
-.serv-content h2 { font-size: 26px; font-weight: 800; color: var(--white); margin-bottom: 6px; line-height: 1.2; }
-.serv-content h2 span { color: var(--green); }
-.serv-content .sub { font-size: 18px; font-weight: 300; color: rgba(255,255,255,.65); margin-bottom: 22px; font-style: italic; }
-.serv-content p { font-size: 14px; color: var(--gray); line-height: 1.75; }
-.serv-img { min-height: 360px; background: #071520; overflow: hidden; }
-.serv-img img { width: 100%; height: 100%; object-fit: cover; opacity: .8; }
-
-/* ââ CICLO DEL HUÃSPED ââ */
-.ciclo-grid { display: grid; grid-template-columns: 1fr 320px 1fr; gap: 32px; align-items: center; margin-top: 8px; }
-.ciclo-center { display: flex; align-items: center; justify-content: center; }
-.ciclo-ring { width: 240px; height: 240px; border-radius: 50%; border: 3px solid var(--border); position: relative; display: flex; align-items: center; justify-content: center; }
-.ciclo-ring::before { content: ''; position: absolute; inset: 12px; border-radius: 50%; border: 3px solid rgba(74,222,128,.15); }
-.ciclo-ring-inner { width: 90px; height: 90px; border-radius: 50%; background: var(--card); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: var(--gray); text-align: center; letter-spacing: .05em; }
-.ciclo-seg { position: absolute; width: 72px; height: 72px; border-radius: 50%; background: var(--card2); border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 22px; }
-.ciclo-seg-1 { top: -12px; left: 50%; transform: translateX(-50%); }
-.ciclo-seg-2 { bottom: 20px; left: -10px; }
-.ciclo-seg-3 { bottom: 20px; right: -10px; }
-.ciclo-item { }
-.ciclo-title { font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 10px; }
-.ciclo-desc { font-size: 13.5px; color: var(--gray); line-height: 1.7; }
-.ciclo-sub { margin-top: 12px; }
-.ciclo-sub-item { font-size: 13px; color: rgba(255,255,255,.6); padding: 4px 0; border-bottom: 1px solid var(--border); }
-.ciclo-sub-item:last-child { border-bottom: none; }
-.ciclo-right { text-align: right; }
-.ciclo-right .ciclo-title { text-align: right; }
-.ciclo-right .ciclo-desc { text-align: right; }
-
-/* ââ FACILITADOR ââ */
-.fac-grid { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: center; }
-.fac-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; text-align: center; }
-.fac-av { width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--green3), #0ea5e9); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 800; color: var(--white); border: 3px solid rgba(74,222,128,.3); }
-.fac-name { font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 4px; }
-.fac-sub { font-size: 12px; color: var(--gray); }
-.fac-tag { display: inline-block; margin-top: 14px; background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.25); color: var(--green); font-size: 11px; padding: 4px 12px; border-radius: 20px; font-weight: 600; }
-.fac-quote { font-size: 20px; font-style: italic; font-weight: 300; color: rgba(255,255,255,.8); line-height: 1.55; border-left: 3px solid var(--green3); padding-left: 20px; margin-bottom: 24px; }
-.fac-bullets { list-style: none; }
-.fac-bullets li { display: flex; align-items: flex-start; gap: 11px; font-size: 14.5px; color: rgba(255,255,255,.75); padding: 9px 0; border-bottom: 1px solid var(--border); }
-.fac-bullets li:last-child { border-bottom: none; }
-.fac-bullets li::before { content: 'â'; color: var(--green); font-weight: 700; flex-shrink: 0; }
-
-/* ââ CTA ââ */
-.cta-band { background: linear-gradient(135deg, #0d2b1e, #112d1a); border-top: 1px solid rgba(74,222,128,.12); border-bottom: 1px solid rgba(74,222,128,.12); padding: 56px 0; }
-.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-.cta-text h2 { font-size: 28px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
-.cta-text p { font-size: 15px; color: rgba(255,255,255,.6); }
-.btn-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--green3); color: var(--white); padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; transition: background var(--tr), transform var(--tr); }
-.btn-cta:hover { background: var(--green2); transform: translateY(-2px); }
-
-/* ââ FOOTER ââ */
-footer { background: #080f17; border-top: 1px solid var(--border); padding: 40px 0 24px; }
-.foot-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-.foot-name { font-size: 15px; font-weight: 700; color: var(--white); }
-.foot-sub { font-size: 11px; color: var(--gray); margin-top: 2px; }
-.foot-copy { font-size: 12px; color: var(--gray2); }
-
-/* ââ RESPONSIVE ââ */
-@media(max-width:900px){
-  .hero-inner,.split,.check-split,.serv-split,.ciclo-grid,.fac-grid { grid-template-columns:1fr }
-  .hero-right,.split-img,.serv-img { display:none }
-  .vgrid--3,.vgrid--4 { grid-template-columns:1fr 1fr }
-  .ciclo-right { text-align:left }
-  .ciclo-right .ciclo-title,.ciclo-right .ciclo-desc { text-align:left }
-  .cta-inner { flex-direction:column; text-align:center }
-}
-@media(max-width:600px){
-  .vgrid--3,.vgrid--4,.vgrid--2 { grid-template-columns:1fr }
-  .nav-links { display:none }
-  .sec { padding:48px 0 }
-}
+.glass-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(16px)}
+.signature-gradient{background:linear-gradient(135deg,#0B1A26 0%,#059669 100%)}
+.cta-gradient{background:radial-gradient(circle at top left,#0d2538 0%,#0B1A26 100%)}
+.text-midnight{color:#0B1A26}.bg-midnight{background-color:#0B1A26}
+.text-emerald{color:#059669}.border-emerald{border-color:#059669}
+.hover-lift{transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease}
+.hover-lift:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.12)}
+.premium-shadow{box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06)}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
 </style>
 </head>
-<body>
-
+<body class="bg-surface font-body text-on-surface antialiased">
 <!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <div class="nav-brand">
-      <div class="nav-badge">RPC</div>
-      <div class="nav-name">
-        Ricardo PeÃ±a Covarrubias
-        <small>Consultor Independiente Â· Hospitalidad</small>
-      </div>
-    </div>
-    <div class="nav-links">
-      <a href="#elementos">Elementos de Limpieza</a>
-      <a href="#habitacion">Limpieza de HabitaciÃ³n</a>
-      <a href="#servicio">Servicio</a>
-      <a href="#ciclo">Ciclo del HuÃ©sped</a>
-      <a href="https://bit.ly/CamaristadeExito" target="_blank" class="btn-nav">Curso LeÃ³n â</a>
-    </div>
-  </div>
+<header class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200/20">
+<nav class="flex justify-between items-center px-8 py-5 max-w-7xl mx-auto">
+<div class="text-2xl font-extrabold tracking-tighter text-[#0B1A26]">RPC <span class="text-emerald">Consulting</span></div>
+<div class="hidden md:flex gap-10 items-center">
+<a class="font-bold text-emerald border-b-2 border-emerald pb-1" href="#modulos">Módulos</a>
+<a class="font-semibold text-gray-600 hover:text-emerald transition-colors" href="#videos">Videos</a>
+<a class="font-semibold text-gray-600 hover:text-emerald transition-colors" href="#bio">Biografía</a>
+<a href="https://bit.ly/CamaristadeExito" target="_blank"><button class="signature-gradient text-white px-7 py-3 rounded-xl font-bold shadow-lg hover:brightness-110">Agendar Consulta</button></a>
+</div>
 </nav>
+</header>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-cats">
-        <span class="hero-cat">PolÃ­ticas</span>
-        <span class="hero-cat hero-cat--outline">Procedimientos</span>
-        <span class="hero-cat hero-cat--outline">Limpieza de Habitaciones</span>
-      </div>
-      <h1 class="hero-title">Potenciando el<br><span class="hi">Talento</span> en<br>Hospitalidad</h1>
-      <p class="hero-desc">FormaciÃ³n especializada que transforma equipos y eleva la experiencia de los huÃ©spedes al mÃ¡ximo nivel de excelencia.</p>
-    </div>
-    <div class="hero-right">
-      <div class="hero-menu">
-        <div class="hero-menu-title">MÃ³dulos de CapacitaciÃ³n</div>
-        <a href="#prep" class="hero-menu-item">
-          <div class="hero-menu-icon">ð§´</div>
-          <div><div class="hero-menu-label">Ama de Llaves: PreparaciÃ³n</div><div class="hero-menu-sub">Productos, elementos y riesgos</div></div>
-          <div class="hero-menu-arrow">âº</div>
-        </a>
-        <a href="#elementos" class="hero-menu-item">
-          <div class="hero-menu-icon">ð§¹</div>
-          <div><div class="hero-menu-label">Elementos de Limpieza</div><div class="hero-menu-sub">6 videos Â· QuÃ­micos, sarro, pisos</div></div>
-          <div class="hero-menu-arrow">âº</div>
-        </a>
-        <a href="#habitacion" class="hero-menu-item">
-          <div class="hero-menu-icon">ðï¸</div>
-          <div><div class="hero-menu-label">Limpieza de HabitaciÃ³n</div><div class="hero-menu-sub">7 videos Â· Proceso completo</div></div>
-          <div class="hero-menu-arrow">âº</div>
-        </a>
-        <a href="#servicio" class="hero-menu-item">
-          <div class="hero-menu-icon">ð</div>
-          <div><div class="hero-menu-label">Servicio y HuÃ©spedes</div><div class="hero-menu-sub">7 videos Â· Las 6 perlas del servicio</div></div>
-          <div class="hero-menu-arrow">âº</div>
-        </a>
-        <a href="#ciclo" class="hero-menu-item">
-          <div class="hero-menu-icon">â»ï¸</div>
-          <div><div class="hero-menu-label">Ciclo del HuÃ©sped</div><div class="hero-menu-sub">Atraer, Interactuar, Deleitar</div></div>
-          <div class="hero-menu-arrow">âº</div>
-        </a>
-      </div>
-    </div>
-  </div>
+<section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-20 grayscale" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80" alt="Luxury hotel"/>
+<div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-20 items-center">
+<div class="space-y-10">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 text-emerald text-xs font-black tracking-widest uppercase border border-green-200">
+<span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald"></span></span>
+Consultoría de Elite
+</div>
+<h1 class="text-7xl md:text-8xl font-black tracking-tight text-[#0B1A26] leading-[0.95]">
+Potenciando el <span class="text-emerald">Talento</span> en Hospitalidad
+</h1>
+<p class="text-xl text-gray-500 max-w-xl leading-relaxed">Elevamos la operatividad hotelera a estándares internacionales mediante la formación estratégica de equipos de alto rendimiento.</p>
+<div class="flex flex-wrap gap-6 pt-4">
+<a href="#videos"><button class="signature-gradient text-white px-10 py-5 rounded-2xl font-black text-lg shadow-2xl hover:brightness-110 transition-all">Explorar Programas</button></a>
+<a href="#bio"><button class="bg-white border border-gray-200 text-[#0B1A26] px-10 py-5 rounded-2xl font-bold text-lg hover:bg-gray-50 transition-all shadow-sm">Ver Resultados</button></a>
+</div>
+</div>
+<div class="relative hidden md:block">
+<div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-all duration-1000 group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80" alt="Professional housekeeper"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0B1A26]/40 to-transparent"></div>
+</div>
+<div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-2xl max-w-xs border-l-8 border-emerald hover-lift">
+<p class="text-[#0B1A26] font-bold italic text-lg leading-snug">"La excelencia no es un acto, es el hábito que define nuestra hospitalidad."</p>
+</div>
+</div>
+</div>
 </section>
 
-<!-- AMA DE LLAVES: PREPARACIÃN -->
-<section id="prep" class="sec">
-  <div class="wrap">
-    <div class="split">
-      <!-- LEFT: image placeholder (carrito de camarista) -->
-      <div class="split-img">
-        <div class="split-img-placeholder">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path fill="white" d="M17 11H7V9h10v2zm2-7H5C3.9 4 3 4.9 3 6v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V6h14v12z"/>
-          </svg>
-        </div>
-      </div>
-      <!-- RIGHT: content -->
-      <div class="split-content">
-        <div class="tag">MÃ³dulo 1</div>
-        <h2>Ama de Llaves:<br><span>De la PreparaciÃ³n,<br>a la Limpieza Profunda</span></h2>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-dot">
-              <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
-            </div>
-            <div class="tl-body">
-              <div class="tl-title">Productos QuÃ­micos</div>
-              <div class="tl-desc">El uso adecuado de los productos quÃ­micos en la limpieza de habitaciones es de gran importancia, tanto para el personal como para las instalaciones. Aprende a identificarlos, usarlos y almacenarlos correctamente.</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot">
-              <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
-            </div>
-            <div class="tl-body">
-              <div class="tl-title">Elementos de Limpieza</div>
-              <div class="tl-desc">La identificaciÃ³n, clasificaciÃ³n y separaciÃ³n de los elementos de limpieza que conforman nuestro material es fundamental: eleva la calidad, disminuye riesgos y ayuda a la economÃ­a.</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot">
-              <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
-            </div>
-            <div class="tl-body">
-              <div class="tl-title">Riesgos</div>
-              <div class="tl-desc">Identificar los riesgos para prevenirlos es de suma importancia. Existen diferentes tipos de riesgo: QuÃ­micos, FÃ­sicos y de Salud. Los reconocemos para prevenirlos.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- MODULOS -->
+<section class="py-32 bg-gray-50" id="modulos">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-20">
+<p class="text-xs font-black tracking-widest text-emerald uppercase mb-4">Especialización Curricular</p>
+<h2 class="text-5xl font-black text-[#0B1A26]">Módulos de Capacitación</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-2 bg-white p-12 rounded-3xl shadow-sm hover-lift border border-gray-100 flex flex-col justify-between">
+<div>
+<div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-4xl text-emerald">king_bed</span>
+</div>
+<h3 class="text-3xl font-black text-[#0B1A26] mb-6">Ama de Llaves: Preparación a Limpieza Profunda</h3>
+<p class="text-xl text-gray-500 leading-relaxed">Gestión estratégica del departamento de pisos, productos químicos, elementos de limpieza, riesgos y protocolos de alto rendimiento bajo estándares de gran turismo.</p>
+</div>
+<div class="mt-12">
+<a href="#videos" class="text-emerald font-black text-lg flex items-center gap-3 group">Ver videos completos <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span></a>
+</div>
+</div>
+<div class="bg-white p-10 rounded-3xl shadow-sm hover-lift border border-gray-100">
+<span class="material-symbols-outlined text-4xl text-emerald mb-6 block">sanitizer</span>
+<h4 class="text-2xl font-black text-[#0B1A26] mb-4">Elementos</h4>
+<p class="text-gray-500">Uso técnico de químicos y herramientas de vanguardia para sanidad hotelera.</p>
+</div>
+<div class="bg-white p-10 rounded-3xl shadow-sm hover-lift border border-gray-100">
+<span class="material-symbols-outlined text-4xl text-emerald mb-6 block">cleaning_services</span>
+<h4 class="text-2xl font-black text-[#0B1A26] mb-4">Protocolos</h4>
+<p class="text-gray-500">Limpieza profunda bajo estándares de auditoría internacional.</p>
+</div>
+<div class="bg-white p-10 rounded-3xl shadow-sm hover-lift border border-gray-100">
+<span class="material-symbols-outlined text-4xl text-emerald mb-6 block">concierge</span>
+<h4 class="text-2xl font-black text-[#0B1A26] mb-4">Etiqueta</h4>
+<p class="text-gray-500">Comunicación asertiva y anticipación a las necesidades del huésped.</p>
+</div>
+<div class="bg-white p-10 rounded-3xl shadow-sm hover-lift border border-gray-100">
+<span class="material-symbols-outlined text-4xl text-emerald mb-6 block">sync_alt</span>
+<h4 class="text-2xl font-black text-[#0B1A26] mb-4">El Ciclo</h4>
+<p class="text-gray-500">Experiencia 360 del huésped en la propiedad hotelera.</p>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ELEMENTOS DE LA LIMPIEZA â VIDEOS -->
-<section id="elementos" class="sec sec--alt">
-  <div class="wrap">
-    <div class="shead">
-      <div class="tag">Videos de capacitaciÃ³n</div>
-      <h2 class="stitle">Elementos de la <span class="hi">Limpieza</span></h2>
-      <p class="slead">Serie completa de videos sobre los principios de limpieza profesional en el sector hotelero.</p>
-    </div>
-    <div class="vgrid vgrid--3">
-      <!-- Video 1 -->
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/387082977?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">01</span>
-          <div class="vcard-title">Productos QuÃ­micos</div>
-          <div class="vcard-sub">PresentaciÃ³n de los productos quÃ­micos que se usan en la limpieza</div>
-          <div class="vcard-dur">â± 15:32</div>
-        </div>
-      </div>
-      <!-- Video 2 -->
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/387083064?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">02</span>
-          <div class="vcard-title">Riesgos del Manejo de Productos</div>
-          <div class="vcard-sub">Riesgos que existen en el manejo de productos quÃ­micos</div>
-          <div class="vcard-dur">â± 12:54</div>
-        </div>
-      </div>
-      <!-- Video 3 -->
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/387082909?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">03</span>
-          <div class="vcard-title">Herramientas de Limpieza</div>
-          <div class="vcard-sub">Lista de artÃ­culos de limpieza mÃ­nimos indispensables</div>
-          <div class="vcard-dur">â± 14:30</div>
-        </div>
-      </div>
-      <!-- Video 4 -->
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/387082848?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">04</span>
-          <div class="vcard-title">CÃ³digo de Color</div>
-          <div class="vcard-sub">CÃ³digo de color por Ã¡rea y por trapo de limpieza</div>
-          <div class="vcard-dur">â± 07:51</div>
-        </div>
-      </div>
-      <!-- Video 5 -->
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/387083110?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">05</span>
-          <div class="vcard-title">Sarro</div>
-          <div class="vcard-sub">QuÃ© es el sarro, sus etapas y cÃ³mo se debe combatir</div>
-          <div class="vcard-dur">â± 12:07</div>
-        </div>
-      </div>
-      <!-- Video 6 -->
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/558033108?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">06</span>
-          <div class="vcard-title">Pisos y Alfombras</div>
-          <div class="vcard-sub">TÃ©cnicas para tipos de piso: laminado, alfombra, cerÃ¡mica</div>
-          <div class="vcard-dur">â± 09:47</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- VIDEOS -->
+<section class="py-32 bg-white" id="videos">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-24">
+<p class="text-xs font-black tracking-widest text-emerald uppercase mb-4">Contenido Premium</p>
+<h2 class="text-5xl font-black text-[#0B1A26] mb-6">Biblioteca de Capacitación</h2>
+<p class="text-xl text-gray-500">Domina las técnicas más avanzadas del sector con nuestra videoteca de acceso libre.</p>
+</div>
+<div class="space-y-24">
+
+<!-- Seccion 1 -->
+<div>
+<h3 class="text-3xl font-black text-[#0B1A26] mb-12 flex items-center gap-4"><span class="w-12 h-1 bg-emerald rounded-full"></span>Elementos de Limpieza</h3>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/387082977?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">1. Productos Químicos</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/387083064?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">2. Riesgos del Manejo</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/387082909?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">3. Herramientas de Limpieza</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/387082848?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">4. Código de Color</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/387083110?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">5. Sarro</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/558033108?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">6. Pisos y Alfombras</p></div></div>
+</div>
+</div>
+
+<!-- Seccion 2 -->
+<div>
+<h3 class="text-3xl font-black text-[#0B1A26] mb-12 flex items-center gap-4"><span class="w-12 h-1 bg-emerald rounded-full"></span>Limpieza de Habitación</h3>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/1113415397?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">1. Carrito de Camarista</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/1113415368?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">2. Status de Habitaciones</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/1113415313?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">3. Preparación de Habitación</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/1113415349?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">4. Limpieza de Habitación</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/386753979?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">5. Limpieza de Baño</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/386754083?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">6. Presentación de la Habitación</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/386754181?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">7. Blancos y Amenidades</p></div></div>
+</div>
+</div>
+
+<!-- Seccion 3 -->
+<div>
+<h3 class="text-3xl font-black text-[#0B1A26] mb-12 flex items-center gap-4"><span class="w-12 h-1 bg-emerald rounded-full"></span>Las 6 Perlas del Servicio</h3>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/684494134?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">Bienvenida al Servicio</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/684479166?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">1. Pasión</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/684490905?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">2. Compromiso</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/684396613?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">3. Desenganche</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/684531173?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">4. Trato Humano</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/684473030?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">5. Inspiración</p></div></div>
+<div class="hover-lift overflow-hidden rounded-3xl premium-shadow"><iframe allowfullscreen class="w-full aspect-video" src="https://player.vimeo.com/video/684631028?title=0&byline=0&portrait=0&color=059669"></iframe><div class="p-4 bg-white"><p class="font-bold text-[#0B1A26]">6. Servicio con Amor</p></div></div>
+</div>
+</div>
+
+</div>
+</div>
 </section>
 
-<!-- LIMPIEZA Y PRESENTACIÃN DE LA HABITACIÃN -->
-<section class="sec">
-  <div class="wrap">
-    <div class="check-split">
-      <div class="check-img">
-        <div style="width:100%;height:100%;min-height:420px;background:linear-gradient(135deg,#091824,#0d2030);display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:72px;opacity:.2;">ðª</span>
-        </div>
-      </div>
-      <div class="check-content">
-        <div class="tag">MÃ³dulo 2</div>
-        <h2>Ama de Llaves: Limpieza y PresentaciÃ³n de la HabitaciÃ³n</h2>
-        <div class="check-item">
-          <div class="check-icon">
-            <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
-          </div>
-          <div>
-            <div class="check-label">Check list de la PreparaciÃ³n</div>
-            <div class="check-text">La limpieza de toda habitaciÃ³n empieza por la preparaciÃ³n en orden visual de izquierda a derecha: iluminar, ventilar, apagar equipos elÃ©ctricos, retirar platos sucios. AsÃ­ el proceso es mÃ¡s rÃ¡pido y no habrÃ¡ olvidos al finalizar.</div>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
-          </div>
-          <div>
-            <div class="check-label">Check list de los Elementos a Limpiar</div>
-            <div class="check-text">Tener en cuenta el orden del proceso de limpieza y de cada elemento de la habitaciÃ³n nos darÃ¡ claridad y rapidez. Nos permite ser estÃ¡ndares ejecutÃ¡ndolo igual cada vez y secuencialmente.</div>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-          </div>
-          <div>
-            <div class="check-label">Check list de los Elementos a Presentar</div>
-            <div class="check-text">Un repaso en la presentaciÃ³n final: cortesÃ­a de noche, mesa de trabajo, amenidades en el baÃ±o, presentaciÃ³n de blancos y papelerÃ­a. La imagen final de la habitaciÃ³n refleja la calidad del hotel.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- CICLO DEL HUESPED -->
+<section class="py-32 bg-gray-50 overflow-hidden">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-24">
+<p class="text-xs font-black tracking-widest text-emerald uppercase mb-4">Ecosistema de Experiencia</p>
+<h2 class="text-5xl font-black text-[#0B1A26]">El Ciclo Vital del Huésped</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-12 relative z-10">
+<div class="flex flex-col items-center text-center group"><div class="w-20 h-20 rounded-2xl bg-white shadow-xl flex items-center justify-center mb-8 group-hover:bg-emerald group-hover:text-white transition-all duration-300"><span class="material-symbols-outlined text-3xl">event_available</span></div><h5 class="text-xl font-black text-[#0B1A26] mb-3">Pre-Arribo</h5><p class="text-sm text-gray-500">Expectativas y reserva inicial.</p></div>
+<div class="flex flex-col items-center text-center group"><div class="w-20 h-20 rounded-2xl bg-white shadow-xl flex items-center justify-center mb-8 group-hover:bg-emerald group-hover:text-white transition-all duration-300"><span class="material-symbols-outlined text-3xl">luggage</span></div><h5 class="text-xl font-black text-[#0B1A26] mb-3">Llegada</h5><p class="text-sm text-gray-500">La crucial primera impresión.</p></div>
+<div class="flex flex-col items-center text-center group"><div class="w-24 h-24 rounded-3xl signature-gradient shadow-2xl flex items-center justify-center mb-8 -mt-4"><span class="material-symbols-outlined text-white text-4xl">meeting_room</span></div><h5 class="text-xl font-black text-[#0B1A26] mb-3">Estancia</h5><p class="text-sm text-gray-500">El corazón del servicio operativo.</p></div>
+<div class="flex flex-col items-center text-center group"><div class="w-20 h-20 rounded-2xl bg-white shadow-xl flex items-center justify-center mb-8 group-hover:bg-emerald group-hover:text-white transition-all duration-300"><span class="material-symbols-outlined text-3xl">key</span></div><h5 class="text-xl font-black text-[#0B1A26] mb-3">Salida</h5><p class="text-sm text-gray-500">Cierre y facturación impecable.</p></div>
+<div class="flex flex-col items-center text-center group"><div class="w-20 h-20 rounded-2xl bg-white shadow-xl flex items-center justify-center mb-8 group-hover:bg-emerald group-hover:text-white transition-all duration-300"><span class="material-symbols-outlined text-3xl">reviews</span></div><h5 class="text-xl font-black text-[#0B1A26] mb-3">Post-Salida</h5><p class="text-sm text-gray-500">Fidelización y comentarios.</p></div>
+</div>
+</div>
 </section>
 
-<!-- LIMPIEZA DE HABITACIÃN â VIDEOS -->
-<section id="habitacion" class="sec sec--alt">
-  <div class="wrap">
-    <div class="shead">
-      <div class="tag">Videos de capacitaciÃ³n</div>
-      <h2 class="stitle">Limpieza de <span class="hi">HabitaciÃ³n</span></h2>
-      <p class="slead">Serie de 7 videos con el proceso completo: desde el carrito de camarista hasta el tendido de cama y amenidades.</p>
-    </div>
-    <div class="vgrid vgrid--4">
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/1113415397?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">01</span>
-          <div class="vcard-title">Carrito de Camarista</div>
-          <div class="vcard-dur">â± 15:50</div>
-        </div>
-      </div>
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/1113415368?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">02</span>
-          <div class="vcard-title">Status de Habitaciones</div>
-          <div class="vcard-dur">â± 11:20</div>
-        </div>
-      </div>
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/1113415313?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">03</span>
-          <div class="vcard-title">PreparaciÃ³n de HabitaciÃ³n para la Limpieza</div>
-          <div class="vcard-dur">â± 21:19</div>
-        </div>
-      </div>
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/1113415349?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">04</span>
-          <div class="vcard-title">Limpieza de HabitaciÃ³n</div>
-          <div class="vcard-dur">â± 12:31</div>
-        </div>
-      </div>
-    </div>
-    <div class="vgrid vgrid--3" style="margin-top:20px">
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/386753979?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">05</span>
-          <div class="vcard-title">Limpieza de BaÃ±o</div>
-          <div class="vcard-dur">â± 12:34</div>
-        </div>
-      </div>
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/386754083?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">06</span>
-          <div class="vcard-title">PresentaciÃ³n de la HabitaciÃ³n</div>
-          <div class="vcard-sub">PresentaciÃ³n final despuÃ©s de la limpieza</div>
-          <div class="vcard-dur">â± 17:35</div>
-        </div>
-      </div>
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/386754181?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">07</span>
-          <div class="vcard-title">Blancos y Amenidades</div>
-          <div class="vcard-sub">Tratamiento de los blancos y las amenidades</div>
-          <div class="vcard-dur">â± 13:58</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICIO Y MANEJO DE HUÃSPEDES DIFÃCILES -->
-<section id="servicio" class="sec">
-  <div class="wrap">
-    <!-- Intro split -->
-    <div class="serv-split" style="margin-bottom:48px">
-      <div class="serv-content">
-        <div class="tag">MÃ³dulo 3</div>
-        <h2>Servicio y manejo de<br>huÃ©spedes difÃ­ciles</h2>
-        <p class="sub">No es secreto, es experiencia.</p>
-        <p>El servicio se compone de diferentes elementos que nos pueden llevar a ser de los mÃ¡ximos expositores del servicio. No es un secreto: la pasiÃ³n, el compromiso, la inspiraciÃ³n, el buen trato, el amor y no tomarse nada personal pueden lograr pulir el servicio que ofrecemos. Conocemos las herramientas para ofrecer el mejor servicio y no morir en el intento.</p>
-      </div>
-      <div class="serv-img">
-        <div style="width:100%;height:100%;min-height:360px;background:linear-gradient(135deg,#071520,#0d2030);display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:80px;opacity:.18;">ðï¸</span>
-        </div>
-      </div>
-    </div>
-    <!-- Videos servicio -->
-    <div class="shead">
-      <div class="tag">Videos de capacitaciÃ³n</div>
-      <h2 class="stitle">Las 6 Perlas del <span class="hi">Servicio</span></h2>
-      <p class="slead">Serie completa para desarrollar una actitud de servicio excepcional con los huÃ©spedes.</p>
-    </div>
-    <div class="vgrid vgrid--4">
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/684494134?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">Intro</span>
-          <div class="vcard-title">Bienvenida al Servicio</div>
-          <div class="vcard-dur">â± 05:55</div>
-        </div>
-      </div>
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/684479166?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">01</span>
-          <div class="vcard-title">PasiÃ³n</div>
-          <div class="vcard-sub">Encuentra tu pasiÃ³n en el servicio</div>
-          <div class="vcard-dur">â± 13:55</div>
-        </div>
-      </div>
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/684490905?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">02</span>
-          <div class="vcard-title">Compromiso</div>
-          <div class="vcard-sub">El compromiso como herramienta del servicio</div>
-          <div class="vcard-dur">â± 24:13</div>
-        </div>
-      </div>
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/684396613?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">03</span>
-          <div class="vcard-title">Desenganche</div>
-          <div class="vcard-dur">â± 22:48</div>
-        </div>
-      </div>
-    </div>
-    <div class="vgrid vgrid--3" style="margin-top:20px">
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/684531173?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">04</span>
-          <div class="vcard-title">Trato Humano</div>
-          <div class="vcard-dur">â± 12:27</div>
-        </div>
-      </div>
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/684473030?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">05</span>
-          <div class="vcard-title">InspiraciÃ³n</div>
-          <div class="vcard-dur">â± 11:44</div>
-        </div>
-      </div>
-      <div class="vcard">
-        <div class="vcard-thumb">
-          <iframe src="https://player.vimeo.com/video/684631028?title=0&byline=0&portrait=0&color=4ade80" allowfullscreen></iframe>
-        </div>
-        <div class="vcard-info">
-          <span class="vcard-num">06</span>
-          <div class="vcard-title">Servicio con Amor</div>
-          <div class="vcard-dur">â± 16:53</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CICLO DEL HUÃSPED -->
-<section id="ciclo" class="sec sec--alt">
-  <div class="wrap">
-    <div class="shead">
-      <div class="tag">Marco conceptual</div>
-      <h2 class="stitle">Ciclo del <span class="hi">HuÃ©sped</span></h2>
-    </div>
-    <div class="ciclo-grid">
-      <!-- Left: Atraer -->
-      <div class="ciclo-item">
-        <div class="ciclo-title">Atraer</div>
-        <div class="ciclo-desc">Colaboradores mÃ¡s competentes, motivados y comprometidos con la excelencia en cada interacciÃ³n con los huÃ©spedes.</div>
-      </div>
-      <!-- Center: diagram -->
-      <div class="ciclo-center">
-        <div class="ciclo-ring">
-          <div class="ciclo-seg ciclo-seg-1">ð¯</div>
-          <div class="ciclo-seg ciclo-seg-2">ð¤</div>
-          <div class="ciclo-seg ciclo-seg-3">â­</div>
-          <div class="ciclo-ring-inner">CICLO<br>DEL<br>HUÃSPED</div>
-        </div>
-      </div>
-      <!-- Right: Interactuar + Deleitar -->
-      <div class="ciclo-right">
-        <div class="ciclo-item" style="margin-bottom:28px">
-          <div class="ciclo-title">Interactuar</div>
-          <div class="ciclo-desc">La interacciÃ³n con el huÃ©sped debe ser:</div>
-          <div class="ciclo-sub">
-            <div class="ciclo-sub-item">Servicio al HuÃ©sped</div>
-            <div class="ciclo-sub-item">FidelizaciÃ³n</div>
-            <div class="ciclo-sub-item">Marketing</div>
-          </div>
-        </div>
-        <div class="ciclo-item">
-          <div class="ciclo-title">Deleitar</div>
-          <div class="ciclo-desc">Incremento significativo en la retenciÃ³n de clientes y en las recomendaciones positivas que atraen nuevos huÃ©spedes.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FACILITADOR -->
-<section class="sec">
-  <div class="wrap">
-    <div class="fac-grid">
-      <div>
-        <div class="fac-card">
-          <div class="fac-av">RPC</div>
-          <div class="fac-name">Ricardo PeÃ±a Covarrubias</div>
-          <div class="fac-sub">Consultor Independiente Â· Hospitalidad</div>
-          <div class="fac-tag">â­ SueÃ±a Â· Piensa Â· Crea</div>
-        </div>
-      </div>
-      <div>
-        <div class="tag">Tu consultor</div>
-        <h2 class="stitle" style="margin-bottom:8px">FormaciÃ³n que transforma</h2>
-        <blockquote class="fac-quote" style="margin-top:20px">"No es secreto, es experiencia. El servicio excelente se aprende, se practica y se vive."</blockquote>
-        <ul class="fac-bullets">
-          <li>Consultor independiente especializado en hospitalidad y turismo</li>
-          <li>Experto en Normas TÃ©cnicas de Competencia Laboral del sector hotelero</li>
-          <li>DiseÃ±ador de programas de capacitaciÃ³n alineados con estÃ¡ndares nacionales</li>
-          <li>Colaborador de empresas hoteleras en QuerÃ©taro y Guanajuato</li>
-          <li>Facilitador del curso "La Camarista de Ãxito" â LeÃ³n, Gto. 24 Marzo 2026</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<!-- BIO -->
+<section class="py-32 bg-[#0B1A26] text-white relative overflow-hidden" id="bio">
+<div class="max-w-7xl mx-auto px-8 relative z-10 grid md:grid-cols-12 gap-16 items-center">
+<div class="md:col-span-5">
+<div class="rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl border-2 border-white/10 group">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Ricardo Peña Covarrubias"/>
+</div>
+</div>
+<div class="md:col-span-7 space-y-10">
+<div>
+<p class="text-xs font-black tracking-widest text-emerald uppercase mb-4">Trayectoria de Éxito</p>
+<h2 class="text-6xl font-black tracking-tight mb-6">Ricardo Peña <br/><span class="text-emerald/80">Covarrubias</span></h2>
+<div class="h-1.5 w-24 bg-emerald rounded-full"></div>
+</div>
+<blockquote class="text-xl font-light italic text-white/80 leading-relaxed border-l-4 border-emerald pl-8">
+"Mi misión es dignificar el trabajo operativo, transformando cada tarea rutinaria en un acto consciente de hospitalidad genuina y excelencia profesional."
+</blockquote>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="flex gap-5 items-start"><div class="flex-shrink-0 w-12 h-12 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center"><span class="material-symbols-outlined text-emerald">verified_user</span></div><div><h4 class="font-black text-white text-lg">Consultor Independiente</h4><p class="text-gray-400 text-sm">Especializado en Operaciones de Hospitalidad y Turismo.</p></div></div>
+<div class="flex gap-5 items-start"><div class="flex-shrink-0 w-12 h-12 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center"><span class="material-symbols-outlined text-emerald">history</span></div><div><h4 class="font-black text-white text-lg">Facilitador Certificado</h4><p class="text-gray-400 text-sm">Normas Técnicas EC03201 · NUTUR006.01.</p></div></div>
+<div class="flex gap-5 items-start"><div class="flex-shrink-0 w-12 h-12 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center"><span class="material-symbols-outlined text-emerald">award_star</span></div><div><h4 class="font-black text-white text-lg">Certificación NUTUR006.01</h4><p class="text-gray-400 text-sm">Experto en Preparación de Habitaciones y Alojamiento.</p></div></div>
+<div class="flex gap-5 items-start"><div class="flex-shrink-0 w-12 h-12 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center"><span class="material-symbols-outlined text-emerald">school</span></div><div><h4 class="font-black text-white text-lg">Fundador</h4><p class="text-gray-400 text-sm">Programa "La Camarista de Éxito" — León, Gto. 2026</p></div></div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- CTA -->
-<div class="cta-band">
-  <div class="wrap">
-    <div class="cta-inner">
-      <div class="cta-text">
-        <h2>Â¿Listo para el curso presencial?</h2>
-        <p>La Camarista de Ãxito Â· LeÃ³n, Guanajuato Â· 24 de Marzo 2026 Â· Gratuito</p>
-      </div>
-      <a href="https://bit.ly/CamaristadeExito" target="_blank" class="btn-cta">
-        ð Registrarme Gratis â
-      </a>
-    </div>
-  </div>
+<section class="py-32 bg-gray-50">
+<div class="max-w-5xl mx-auto px-8">
+<div class="cta-gradient rounded-[3rem] p-16 md:p-24 text-center border border-white/10 relative overflow-hidden">
+<div class="relative z-10 space-y-10">
+<p class="text-emerald font-black tracking-widest uppercase text-sm">Convocatoria Presencial · Gratuita</p>
+<h2 class="text-5xl md:text-6xl font-black text-white tracking-tight">"La Camarista de <span class="text-emerald">Éxito</span>"</h2>
+<p class="text-xl text-gray-300 max-w-2xl mx-auto font-light">Inscríbete en la edición presencial en <span class="font-bold text-white">León, Guanajuato</span> y eleva los estándares de tu equipo.</p>
+<div class="flex flex-col md:flex-row gap-8 justify-center items-center text-white font-bold text-lg">
+<div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"><span class="material-symbols-outlined text-emerald text-xl">calendar_month</span></div>24 Marzo 2026</div>
+<div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"><span class="material-symbols-outlined text-emerald text-xl">schedule</span></div>9:00 – 15:00 hrs</div>
+<div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"><span class="material-symbols-outlined text-emerald text-xl">location_on</span></div>León, Guanajuato</div>
+<div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"><span class="material-symbols-outlined text-emerald text-xl">volunteer_activism</span></div>¡Gratuito!</div>
 </div>
+<a href="https://bit.ly/CamaristadeExito" target="_blank"><button class="bg-emerald text-[#0B1A26] text-xl px-14 py-6 rounded-2xl font-black shadow-xl hover:scale-105 hover:bg-white transition-all duration-300">Inscribirme Ahora</button></a>
+<p class="text-gray-500 text-sm">Cupos limitados · Sueña · Piensa · Crea</p>
+</div>
+</div>
+</div>
+</section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot-inner">
-      <div>
-        <div class="foot-name">Ricardo PeÃ±a Covarrubias</div>
-        <div class="foot-sub">Consultor Independiente Â· Hospitalidad y Turismo</div>
-      </div>
-      <div class="foot-copy">Â© 2026 Ricardo PeÃ±a Covarrubias Â· Todos los derechos reservados</div>
-    </div>
-  </div>
+<footer class="bg-[#0B1A26] w-full py-16 border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center px-12 max-w-7xl mx-auto gap-10">
+<div>
+<div class="text-2xl font-black text-white mb-3">RPC <span class="text-emerald">Consulting</span></div>
+<p class="text-gray-500 max-w-xs text-sm">Liderando la transformación del capital humano en la industria hotelera.</p>
+</div>
+<div class="flex gap-8 flex-wrap">
+<a href="https://www.linkedin.com/in/ricardo-pe%C3%B1a-covarrubias-7aa958236" target="_blank" class="text-xs font-black uppercase tracking-widest text-gray-400 hover:text-emerald transition-colors">LinkedIn</a>
+<a href="https://www.facebook.com/ricardo.pena.450214" target="_blank" class="text-xs font-black uppercase tracking-widest text-gray-400 hover:text-emerald transition-colors">Facebook</a>
+<a href="https://bit.ly/CamaristadeExito" target="_blank" class="text-xs font-black uppercase tracking-widest text-gray-400 hover:text-emerald transition-colors">Curso León</a>
+</div>
+<p class="text-[10px] font-black uppercase tracking-widest text-gray-600">© 2026 Ricardo Peña Covarrubias</p>
+</div>
 </footer>
-
-<script>
-// Smooth scroll for nav links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href').slice(1);
-    const el = document.getElementById(id);
-    if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  });
-});
-</script>
-
-</body>
-</html>
+</body></html>
